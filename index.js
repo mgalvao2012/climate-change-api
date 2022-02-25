@@ -1,4 +1,3 @@
-const PORT = process.env.port || 8000;
 const express = require("express");
 const axios = require("axios");
 const cheerio = require("cheerio");
@@ -129,4 +128,8 @@ app.get("/news/:newspaperId", (req, res) => {
         .catch((err) => console.log(err));
 });
 
-app.listen(PORT, () => console.log(`server running on PORT ${PORT}`));
+// set port, listen for requests
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
