@@ -97,7 +97,13 @@ newspapers.forEach((newspaper) => {
 
 app.use((req, res, next) => {
     const headerSecretKey = req.headers['x-rapidapi-key'];
-    if(typeof(headerSecretKey) !== "undefined" && headerSecretKey === process.env['X_RapidAPI_Key']) {
+    const envRapidAPIKey = process.env['x-rapidapi-key'];
+    const envDebug = process.env.Debug;
+    if(envDebug=="True") {
+        console.log('headerSecretKey '+headerSecretKey);
+        console.log('envRapidAPIKey '+envRapidAPIKey);
+    }
+    if(typeof(headerSecretKey) !== "undefined" && headerSecretKey === envRapidAPIKey) {
         next();
     } else {
         res.status(403).send("You're not authorized to access this resource.");
