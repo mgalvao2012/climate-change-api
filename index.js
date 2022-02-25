@@ -97,7 +97,8 @@ newspapers.forEach((newspaper) => {
 
 app.use((req, res, next) => {
     const headerSecretKey = req.headers['x-rapidapi-proxy-secret'];
-    if( headerSecretKey === process.env['X_RapidAPI_Proxy_Secret']) {
+    console.log('headerSecretKey '+headerSecretKey);
+    if(typeof(headerSecretKey) !== "undefined" && headerSecretKey === process.env['X_RapidAPI_Proxy_Secret']) {
         next();
     } else {
         res.status(403).send("You're not authorized to access this resource.");
