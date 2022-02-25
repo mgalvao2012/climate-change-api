@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "author": "Marcelo Galvão",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.0",
     "cheerio": "^1.0.0-rc.10",
-    "express": "^4.17.3",
-    "nodemon": "^2.0.15"
+    "express": "^4.17.3"
   }
 }
