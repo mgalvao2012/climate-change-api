@@ -1,2 +1,2 @@
 GET http://localhost:8000/
-x-rapidapi-proxy-secret: 53369160-95bf-11ec-8d21-1bdbe652f567
+x-rapidapi-proxy-secret: xxxxxxx
