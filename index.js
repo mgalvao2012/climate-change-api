@@ -96,7 +96,7 @@ newspapers.forEach((newspaper) => {
 });
 
 app.use((req, res, next) => {
-    const headerSecretKey = req.headers['X-RapidAPI-Key'];
+    const headerSecretKey = req.headers['x-rapidapi-key'];
     if(typeof(headerSecretKey) !== "undefined" && headerSecretKey === process.env['X_RapidAPI_Key']) {
         next();
     } else {
