@@ -1,7 +1,9 @@
 const express = require("express");
 const axios = require("axios");
 const cheerio = require("cheerio");
+const dotenv = require("dotenv");
 
+dotenv.config();
 const app = express();
 
 const newspapers = [
@@ -92,6 +94,16 @@ newspapers.forEach((newspaper) => {
         })
         .catch((err) => console.log(err));
 });
+
+app.use((req, res, next) => {
+    const headerSecretKey = req.headers['x-rapidapi-proxy-secret'];
+    if( headerSecretKey === process.env['X_RapidAPI_Proxy_Secret']) {
+        next();
+    } else {
+        res.status(403).send("You're not authorized to access this resource.");
+    }
+})
+
 app.get("/", (req, res) => {
     res.json("Welcome to my Climate Change News API");
 });

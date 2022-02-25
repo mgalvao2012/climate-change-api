@@ -1,0 +1,2 @@
+GET http://localhost:8000/
+X-RapidAPI-Proxy-Secret: 43369160-95bf-11ec-8d21-1bdbe652f567
