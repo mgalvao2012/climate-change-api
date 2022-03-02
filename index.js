@@ -100,8 +100,7 @@ app.use((req, res, next) => {
     const envRapidAPIKey = process.env['x-rapidapi-key'];
     const envDebug = process.env.Debug;
     if(envDebug=="True") {
-        console.log('headerSecretKey '+headerSecretKey);
-        console.log('envRapidAPIKey '+envRapidAPIKey);
+        console.log(req.headers);
     }
     if(typeof(headerSecretKey) !== "undefined" && headerSecretKey === envRapidAPIKey) {
         next();
