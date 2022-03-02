@@ -96,8 +96,8 @@ newspapers.forEach((newspaper) => {
 });
 
 app.use((req, res, next) => {
-    const headerSecretKey = req.headers['x-rapidapi-key'];
-    const envRapidAPIKey = process.env['x-rapidapi-key'];
+    const headerSecretKey = req.headers['x-rapidapi-proxy-secret'];
+    const envRapidAPIKey = process.env['x-rapidapi-proxy-secret'];
     const envDebug = process.env.Debug;
     if(envDebug=="True") {
         console.log(req.headers);
